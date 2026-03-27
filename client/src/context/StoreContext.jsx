@@ -14,6 +14,12 @@ export function StoreProvider({ children }) {
     return saved ? JSON.parse(saved) : false;
   });
 
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('user');
+    return saved ? JSON.stringify(saved) : null;
+  });
+
+
   // Save theme preference to localStorage
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
@@ -25,7 +31,28 @@ export function StoreProvider({ children }) {
     }
   }, [darkMode]);
 
+  // Load user from localStorage on mount
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []); 
+
+
   const toggleDarkMode = () => setDarkMode(prev => !prev);
+
+  const loginUser = (userData) => {
+    setUser(userData);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('user', JSON.stringify(userData));
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
+  };
 
   const addToCart = (product, qty = 1) => {
     setCart((items) => {
@@ -69,7 +96,10 @@ export function StoreProvider({ children }) {
       setProductModal,
       PRODUCTS,
       darkMode,
-      toggleDarkMode
+      toggleDarkMode,
+      user,
+      loginUser,
+      logout
     }}>
       {children}
     </StoreContext.Provider>

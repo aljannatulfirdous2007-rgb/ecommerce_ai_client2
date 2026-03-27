@@ -8,24 +8,51 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Luxury 2026 Palette
+        rose: {
+          50: '#fdf2f8',
+          500: '#f472b6',
+          600: '#ec4899',
+          700: '#db2777',
+          900: '#851c56',
+        },
+        pink: {
+          50: '#fdf2f8',
+          400: '#f472b6',
+          500: '#ec4899',
+          600: '#db2777',
+        },
+        purple: {
+          400: '#a78bfa',
+          500: '#8b5cf6',
+          600: '#7c3aed',
+          900: '#581c87',
+        },
+        dark: {
+          900: '#08060e',
+          800: '#111111', 
+          700: '#1a1a2e',
+          600: '#242424',
+        },
+        slate: {
+          950: '#020617',
+          900: '#0f172a',
+          800: '#1e293b',
+          700: '#334155',
+          600: '#475569',
+          500: '#64748b',
+          400: '#94a3b8',
+          300: '#cbd5e1',
+        },
         gold: {
           50: '#fef7e8',
           500: '#c9a84c',
           600: '#b8943f',
           700: '#a67e36',
         },
-        dark: {
-          900: '#080808',
-          800: '#111111',
-          700: '#1a1a1a',
-          600: '#242424',
-        },
-        'glass': 'rgba(255,255,255,0.05)',
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
-        'sans': ['DM Sans', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        playfair: ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
       },
       animation: {
         'fadeInUp': 'fadeInUp 0.8s ease-out',
@@ -51,7 +78,11 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
       },
+      backdropBlur: {
+        xs: '2px',
+      }
     },
   },
   plugins: [],
 }
+

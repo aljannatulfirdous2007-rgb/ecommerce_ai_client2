@@ -1,130 +1,131 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, Eye, Star, ShoppingCart } from 'lucide-react';
+import { Heart, Eye, ShoppingBag } from 'lucide-react';
 import { useStore } from "../context/StoreContext";
 
 export default function ProductCard({ product }) {
+  const navigate = useNavigate();
   const { addToCart, wishlist, toggleWishlist, setProductModal } = useStore();
   const [hovered, setHovered] = useState(false);
   const discount = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
 
   return (
     <motion.article
-      layout
-      whileHover={{ 
-        scale: 1.05, 
-        y: -12,
-        boxShadow: "0 35px 60px -20px rgba(79, 70, 229, 0.4)"
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:bg-gray-700/90 hover:border-gray-600/70 overflow-hidden transition-all duration-500 cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-indigo-500/25"
+      onClick={() => navigate(`/product/${product.id}`)}
+      whileHover={{ y: -8 }}
+      className="group relative rounded-2xl bg-black overflow-hidden border border-white/10 hover:border-red-600/50 transition-all duration-500 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative mb-6 overflow-hidden rounded-xl h-56 bg-gray-700/50 group-hover:bg-gray-800/70 transition-all">
+      <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900">
         <motion.img
           src={product.img}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          whileHover={{ scale: 1.1 }}
+          className="w-full h-full object-cover"
+          animate={{ scale: hovered ? 1.08 : 1 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         />
 
-        {/* Discount Badge */}
         {discount > 0 && (
           <motion.div
-            className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 absolute top-4 right-4 text-white px-3 py-1 rounded-xl text-sm font-bold shadow-lg"
-            animate={{ 
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, -2, 0]
-            }}
+            animate={{ y: [0, -4, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
+            className="absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
           >
             -{discount}%
           </motion.div>
         )}
 
-        {/* Action Overlay */}
-        <div className="absolute inset-0 bg-gray-900/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 p-4">
+        {/* Quick Actions Overlay */}
+        <motion.div 
+          className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3"
+        >
           <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 20 }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.9 }}
             onClick={(e) => {
               e.stopPropagation();
               setProductModal(product);
             }}
-            className="p-3 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all"
-            title="Quick View"
+            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors shadow-xl"
           >
             <Eye className="w-5 h-5" />
           </motion.button>
-          
           <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 20 }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.9 }}
             onClick={(e) => {
               e.stopPropagation();
               toggleWishlist(product.id);
             }}
-            className={`p-3 rounded-xl border border-white/30 text-white transition-all ${
+            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors shadow-xl ${
               wishlist.includes(product.id) 
-                ? 'bg-gradient-to-r from-rose-500 to-pink-500 shadow-rose-500/25' 
-                : 'bg-white/20 hover:bg-white/30'
+                ? 'bg-red-600 text-white' 
+                : 'bg-white text-black hover:bg-red-600 hover:text-white'
             }`}
-            title="Wishlist"
           >
             <Heart className={`w-5 h-5 ${wishlist.includes(product.id) ? 'fill-current' : ''}`} />
           </motion.button>
-        </div>
+        </motion.div>
+
+        {/* Add to Cart - Bottom */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+        >
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+            className="w-full py-3 bg-red-600 hover:bg-white text-white hover:text-black font-medium text-sm uppercase tracking-wider rounded-xl transition-all duration-300 shadow-2xl flex items-center justify-center gap-2"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            Add to Cart
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Content */}
-      <div className="space-y-3">
-        <p className="text-sm text-gray-400 uppercase tracking-wide font-medium">
-          {product.category}
-        </p>
+      <div className="p-4 space-y-3">
+        {/* Category */}
+        <p className="text-xs text-red-600 uppercase tracking-wider">{product.category}</p>
         
-        <h3 className="text-xl font-bold leading-tight line-clamp-2 hover:bg-gradient-to-r hover:from-indigo-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent transition-all">
+        {/* Name */}
+        <h3 className="font-medium text-white line-clamp-2 group-hover:text-red-600 transition-colors duration-300">
           {product.name}
         </h3>
 
         {/* Rating */}
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex gap-1">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <Star 
+              <span 
                 key={i} 
-                className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-600'}`} 
-              />
+                className={`text-xs ${i < Math.floor(product.rating) ? 'text-red-600' : 'text-gray-600'}`}
+              >
+                ★
+              </span>
             ))}
           </div>
           <span className="text-xs text-gray-500">({product.reviews})</span>
         </div>
 
         {/* Price */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-2xl font-black bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            ${product.price}
-          </span>
+        <div className="flex items-center gap-3">
+          <span className="text-lg font-bold text-white">${product.price.toLocaleString()}</span>
           {product.oldPrice && (
-            <span className="text-lg text-gray-500 line-through">
-              ${product.oldPrice}
-            </span>
+            <span className="text-sm text-gray-500 line-through">${product.oldPrice.toLocaleString()}</span>
           )}
         </div>
-
-        {/* Add to Cart */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => addToCart(product)}
-          className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-xl hover:shadow-indigo-500/40 transition-all border-2 border-transparent hover:border-indigo-500/50"
-        >
-          <ShoppingCart className="w-5 h-5 inline ml-2" />
-          Add to Cart
-        </motion.button>
       </div>
     </motion.article>
   );
 }
-

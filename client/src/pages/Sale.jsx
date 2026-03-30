@@ -212,7 +212,7 @@ export default function Sale() {
                     <img
                       src={product.img}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-contain bg-zinc-900"
                     />
                   </div>
                 </div>

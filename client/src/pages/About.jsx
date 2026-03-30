@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Users,
   Target,
@@ -14,39 +15,39 @@ import {
   Globe,
   Shield,
   Truck,
-  HeadphonesIcon
+  Sparkles
 } from "lucide-react";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('mission');
 
   const stats = [
-    { icon: Users, label: 'Happy Customers', value: '1M+', color: 'text-blue-500' },
-    { icon: ShoppingBag, label: 'Products Sold', value: '5M+', color: 'text-green-500' },
-    { icon: Globe, label: 'Countries Served', value: '50+', color: 'text-purple-500' },
-    { icon: Award, label: 'Years of Excellence', value: '10+', color: 'text-orange-500' }
+    { icon: Users, label: 'Happy Customers', value: '500K+', color: 'text-red-600' },
+    { icon: ShoppingBag, label: 'Outfits Curated', value: '2M+', color: 'text-white' },
+    { icon: Globe, label: 'Countries Served', value: '30+', color: 'text-red-600' },
+    { icon: Award, label: 'AI Recommendations', value: '10M+', color: 'text-white' }
   ];
 
   const values = [
     {
-      icon: Shield,
-      title: 'Quality Assurance',
-      description: 'Every product undergoes rigorous quality checks to ensure you receive only the best.'
-    },
-    {
-      icon: Truck,
-      title: 'Fast Delivery',
-      description: 'Lightning-fast shipping with real-time tracking for all your orders.'
-    },
-    {
-      icon: HeadphonesIcon,
-      title: '24/7 Support',
-      description: 'Our customer service team is always ready to help with any questions or concerns.'
+      icon: Target,
+      title: 'AI-Powered Precision',
+      description: 'Our intelligent algorithms analyze thousands of combinations to recommend perfect outfits tailored to your occasion, style, and preferences.'
     },
     {
       icon: Heart,
-      title: 'Customer First',
-      description: 'Your satisfaction is our top priority. We go above and beyond for our customers.'
+      title: 'Personalized Experience',
+      description: 'Every recommendation is uniquely yours. We consider your body type, style preferences, and occasion to deliver curated looks that make you shine.'
+    },
+    {
+      icon: Sparkles,
+      title: 'Smart Innovation',
+      description: 'Leveraging cutting-edge AI technology to revolutionize how you discover fashion. No more endless scrolling – just instant, intelligent recommendations.'
+    },
+    {
+      icon: Shield,
+      title: 'Quality & Trust',
+      description: 'Every piece in our collection undergoes rigorous quality checks. We partner only with premium brands that share our commitment to excellence.'
     }
   ];
 
@@ -93,10 +94,10 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold mb-6 dark:text-white">About Us</h1>
+          <h1 className="text-5xl font-bold mb-6 dark:text-white">About AL FIRDOUS LUXE</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We're more than just an online store. We're your trusted partner in discovering amazing products
-            that enhance your lifestyle and bring joy to your everyday moments.
+            We're not just a fashion website – we're a smart fashion recommendation platform powered by AI. 
+            Discover your perfect outfit for every occasion with intelligent style matching technology.
           </p>
         </motion.div>
 
@@ -153,16 +154,18 @@ export default function About() {
                 animate={{ opacity: 1 }}
                 className="text-center"
               >
-                <Target className="w-16 h-16 text-amazon-orange mx-auto mb-6" />
+                <Target className="w-16 h-16 text-red-600 mx-auto mb-6" />
                 <h3 className="text-3xl font-bold mb-6 dark:text-white">Our Mission</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                  To democratize access to quality products by creating an online marketplace that combines
-                  cutting-edge technology with exceptional customer service. We believe that everyone deserves
-                  access to products that improve their lives, regardless of their location or budget.
+                  To revolutionize fashion shopping through artificial intelligence. We believe finding the perfect outfit 
+                  shouldn't be overwhelming – it should be instant, intuitive, and enjoyable.
                   <br /><br />
-                  Our mission is to build lasting relationships with our customers by consistently delivering
-                  value, innovation, and trust. We strive to be more than just a retailer – we want to be
-                  your go-to destination for all your shopping needs.
+                  Our AI-powered platform analyzes your preferences, occasion, body type, and current trends to deliver 
+                  personalized outfit recommendations in seconds. No more endless scrolling or decision fatigue. Just 
+                  curated looks that make you look and feel your absolute best.
+                  <br /><br />
+                  We're building the future of fashion retail – where technology meets style, where every recommendation 
+                  is tailored, and where everyone has access to personal styling that was once reserved for the elite.
                 </p>
               </motion.div>
             )}
@@ -177,27 +180,27 @@ export default function About() {
                     <h3 className="text-3xl font-bold mb-6 dark:text-white">Our Story</h3>
                     <div className="space-y-4 text-gray-600 dark:text-gray-300">
                       <p>
-                        Founded in 2014 by a group of passionate entrepreneurs who saw an opportunity to
-                        revolutionize the online shopping experience. What started as a small startup in a
-                        garage has grown into one of the most trusted e-commerce platforms worldwide.
+                        Founded in 2024 by visionary entrepreneurs who saw a gap in the fashion industry – too many choices, 
+                        not enough personalization. We realized that traditional online shopping was broken: endless scrolling, 
+                        generic recommendations, and decision paralysis.
                       </p>
                       <p>
-                        Our journey began with a simple idea: make quality products accessible to everyone.
-                        We invested heavily in technology and customer service from day one, building a
-                        platform that prioritizes user experience and satisfaction above all else.
+                        So we built AL FIRDOUS LUXE from the ground up as a technology company first, fashion retailer second. 
+                        Our team of AI experts, data scientists, and fashion stylists worked together to create an intelligent 
+                        recommendation engine that understands style, occasion, and individual preferences.
                       </p>
                       <p>
-                        Today, we serve millions of customers across 50+ countries, offering a curated
-                        selection of products from trusted brands and emerging artisans. Our commitment
-                        to excellence has earned us numerous awards and the loyalty of our growing community.
+                        Today, our platform serves hundreds of thousands of customers worldwide, offering AI-curated outfits 
+                        for weddings, parties, casual occasions, and more. Our commitment to innovation and personalized 
+                        experience has made us the go-to smart fashion platform for those who value both style and time.
                       </p>
                     </div>
                   </div>
                   <div className="relative">
                     <img
-                      src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=600&h=400&fit=crop"
+                      src="/images/slide-1.png"
                       alt="Our office"
-                      className="rounded-lg shadow-lg"
+                      className="rounded-lg shadow-lg w-full h-96 object-cover"
                     />
                   </div>
                 </div>
@@ -219,7 +222,7 @@ export default function About() {
                       transition={{ delay: index * 0.1 }}
                       className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6"
                     >
-                      <value.icon className="w-12 h-12 text-amazon-orange mb-4" />
+                      <value.icon className="w-12 h-12 text-red-600 mb-4" />
                       <h4 className="text-xl font-bold mb-3 dark:text-white">{value.title}</h4>
                       <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
                     </motion.div>
@@ -249,7 +252,7 @@ export default function About() {
                         className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold mb-2 dark:text-white">{member.name}</h4>
-                      <p className="text-amazon-orange font-medium mb-3">{member.role}</p>
+                      <p className="text-red-600 font-medium mb-3">{member.role}</p>
                       <p className="text-gray-600 dark:text-gray-300 text-sm">{member.bio}</p>
                     </motion.div>
                   ))}
@@ -268,28 +271,28 @@ export default function About() {
           <h3 className="text-3xl font-bold text-center mb-12 dark:text-white">Get In Touch</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <Mail className="w-8 h-8 text-amazon-orange mx-auto mb-3" />
+              <Mail className="w-8 h-8 text-red-600 mx-auto mb-3" />
               <h4 className="font-bold mb-2 dark:text-white">Email Us</h4>
-              <p className="text-gray-600 dark:text-gray-300">support@amazonecommerce.com</p>
-              <p className="text-gray-600 dark:text-gray-300">business@amazonecommerce.com</p>
+              <p className="text-gray-600 dark:text-gray-300">support@alfirdousluxe.com</p>
+              <p className="text-gray-600 dark:text-gray-300">styling@alfirdousluxe.com</p>
             </div>
             <div className="text-center">
-              <Phone className="w-8 h-8 text-amazon-orange mx-auto mb-3" />
+              <Phone className="w-8 h-8 text-red-600 mx-auto mb-3" />
               <h4 className="font-bold mb-2 dark:text-white">Call Us</h4>
-              <p className="text-gray-600 dark:text-gray-300">1-800-SHOP-NOW</p>
-              <p className="text-gray-600 dark:text-gray-300">Mon-Fri 9AM-6PM PST</p>
+              <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+              <p className="text-gray-600 dark:text-gray-300">Mon-Fri 9AM-6PM EST</p>
             </div>
             <div className="text-center">
-              <MapPin className="w-8 h-8 text-amazon-orange mx-auto mb-3" />
+              <MapPin className="w-8 h-8 text-red-600 mx-auto mb-3" />
               <h4 className="font-bold mb-2 dark:text-white">Visit Us</h4>
-              <p className="text-gray-600 dark:text-gray-300">123 Commerce Street</p>
-              <p className="text-gray-600 dark:text-gray-300">Seattle, WA 98101</p>
+              <p className="text-gray-600 dark:text-gray-300">Fashion Tech Hub</p>
+              <p className="text-gray-600 dark:text-gray-300">New York, NY 10001</p>
             </div>
             <div className="text-center">
-              <Clock className="w-8 h-8 text-amazon-orange mx-auto mb-3" />
+              <Clock className="w-8 h-8 text-red-600 mx-auto mb-3" />
               <h4 className="font-bold mb-2 dark:text-white">Business Hours</h4>
-              <p className="text-gray-600 dark:text-gray-300">Mon-Fri: 9AM-6PM</p>
-              <p className="text-gray-600 dark:text-gray-300">Sat-Sun: 10AM-4PM</p>
+              <p className="text-gray-600 dark:text-gray-300">Mon-Fri: 9AM-6PM EST</p>
+              <p className="text-gray-600 dark:text-gray-300">Sat: 10AM-4PM EST</p>
             </div>
           </div>
         </motion.div>
@@ -298,21 +301,21 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-amazon-orange to-orange-600 rounded-lg p-8 text-center text-white"
+          className="bg-gradient-to-r from-red-600 to-red-800 rounded-lg p-8 text-center text-white"
         >
           <Users className="w-12 h-12 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-2">Join Our Community</h3>
+          <h3 className="text-2xl font-bold mb-2">Experience Smart Fashion</h3>
           <p className="mb-6 opacity-90">
-            Become part of our growing family of satisfied customers. Follow us for the latest updates,
-            exclusive deals, and behind-the-scenes content.
+            Try our AI-powered occasion selector and discover outfits perfectly matched to your style. 
+            Join thousands who've transformed how they shop for fashion.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-amazon-orange px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
-              Start Shopping
-            </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-amazon-orange transition">
-              Contact Us
-            </button>
+            <Link to="/shop" className="bg-white text-red-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+              Try Occasion Selector
+            </Link>
+            <Link to="/about" className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-red-600 transition">
+              Learn More
+            </Link>
           </div>
         </motion.div>
       </div>

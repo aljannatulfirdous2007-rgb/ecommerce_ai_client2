@@ -1,39 +1,260 @@
-export const PRODUCTS = [
-  // Existing products
-  { id: 1, name: "Obsidian Watch", price: 2499, oldPrice: 3200, category: "Tech", rating: 4.9, reviews: 312, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center", inventory: 16, description: "Premium smartwatch with obsidian finish, featuring heart rate monitoring, GPS tracking, and water resistance up to 50m." },
-  { id: 2, name: "Leather Tote", price: 890, oldPrice: 1200, category: "Fashion", rating: 4.8, reviews: 218, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center", inventory: 24, description: "Handcrafted genuine leather tote bag with spacious compartments, perfect for work or travel." },
-  { id: 3, name: "Gold Serum", price: 320, oldPrice: 450, category: "Beauty", rating: 4.7, reviews: 540, img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center", inventory: 41, description: "24k gold-infused anti-aging serum that reduces fine lines and improves skin elasticity." },
-  { id: 4, name: "Silk Scarf", price: 450, oldPrice: 600, category: "Fashion", rating: 4.9, reviews: 178, img: "https://images.unsplash.com/photo-1601762603332-fd61e28b698a?w=400&h=400&fit=crop&crop=center", inventory: 12, description: "100% pure silk scarf with elegant patterns, perfect for adding sophistication to any outfit." },
-  { id: 5, name: "Air Pods Pro", price: 1299, oldPrice: 1599, category: "Tech", rating: 4.8, reviews: 893, img: "https://images.unsplash.com/photo-1606220945770-b5b6c2c9bf1f?w=400&h=400&fit=crop&crop=center", inventory: 34, description: "Wireless earbuds with active noise cancellation, spatial audio, and up to 30 hours of battery life." },
-  { id: 6, name: "Marble Candle", price: 180, oldPrice: 240, category: "Home", rating: 4.6, reviews: 290, img: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=400&fit=crop&crop=center", inventory: 45, description: "Hand-poured soy wax candle in a marble container, with notes of lavender and vanilla." },
-  { id: 7, name: "Cashmere Coat", price: 1850, oldPrice: 2400, category: "Fashion", rating: 4.9, reviews: 127, img: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&crop=center", inventory: 19, description: "Ultra-soft cashmere wool coat with premium tailoring and timeless design." },
-  { id: 8, name: "Fragrance Set", price: 560, oldPrice: 750, category: "Beauty", rating: 4.7, reviews: 420, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=400&fit=crop&crop=center", inventory: 50, description: "Luxury fragrance set with eau de parfum, body mist, and matching body lotion." },
+// AL FIRDOUS LUXE - Pinterest Coded Aesthetic
+// Color Palette: Black, White, Red (Versace x Jennifer's Body x Mean Girls x VS)
 
-  // New products for expanded collection
-  { id: 9, name: "Wireless Gaming Mouse", price: 799, oldPrice: 999, category: "Tech", rating: 4.8, reviews: 567, img: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop&crop=center", inventory: 28, description: "RGB gaming mouse with 16,000 DPI sensor, programmable buttons, and ergonomic design." },
+export const PRODUCTS = [
+  // AL FIRDOUS LUXE - Beauty & Fashion Only
+  
+  // FASHION - Jennifer's Body/Mean Girls Aesthetic
+  { 
+    id: 1, 
+    name: "Crimson Velvet Gown", 
+    price: 2890, 
+    oldPrice: 3500, 
+    category: "Fashion", 
+    rating: 5.0, 
+    reviews: 89, 
+    img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1572804013309-2fc7956399a8?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&h=800&fit=crop"
+    ], 
+    inventory: 15, 
+    description: "A dangerously seductive velvet dress that commands attention. The deep neckline and body-hugging silhouette make you the center of every room. For the girl who knows she's the main character.", 
+    sizes: ["XS", "S", "M", "L", "XL"], 
+    ingredients: "Premium Velvet Blend",
+    faqs: [
+      { q: "How do I care for this dress?", a: "Dry clean only to maintain the luxurious velvet texture." },
+      { q: "Is it true to size?", a: "Yes, but size up if you prefer a more relaxed fit." }
+    ]
+  },
+  {
+    id: 2, 
+    name: "Noir Silk Slip Dress", 
+    price: 1685, 
+    oldPrice: 2250, 
+    category: "Fashion", 
+    rating: 5.0, 
+    reviews: 89, 
+    img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1572804013309-2fc7956399a8?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&h=800&fit=crop"
+    ], 
+    inventory: 15, 
+    description: "A dangerously seductive silk slip that drapes like liquid shadow. The minimalist silhouette speaks volumes - for the woman who doesn't need to try hard to command every room she enters.", 
+    sizes: ["XS", "S", "M", "L", "XL"], 
+    ingredients: "100% Italian Silk",
+    faqs: [
+      { q: "How do I care for silk?", a: "Dry clean only to maintain the lustrous finish." },
+      { q: "Is it see-through?", a: "The black silk has a beautiful opacity while maintaining that signature silk sheen." }
+    ]
+  },
+  { 
+    id: 3, 
+    name: "Obsidian Silk Robe", 
+    price: 895, 
+    oldPrice: 1150, 
+    category: "Fashion", 
+    rating: 4.8, 
+    reviews: 189, 
+    img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop", 
+    inventory: 32, 
+    description: "Pure silk robe that drapes like liquid gold. Perfect for your morning routine or those lazy Sundays when you're feeling yourself.", 
+    sizes: ["XS/S", "M/L", "XL/XXL"], 
+    ingredients: "100% Mulberry Silk",
+    faqs: [
+      { q: "What length is the robe?", a: "Mid-thigh length, approximately 35 inches." },
+      { q: "Does it have pockets?", a: "Yes, two hidden side pockets." }
+    ]
+  },
+  { 
+    id: 4, 
+    name: "Diamond Cat Choker", 
+    price: 3285, 
+    oldPrice: 4250, 
+    category: "Fashion", 
+    rating: 5.0, 
+    reviews: 89, 
+    img: "/images/diamond-cat.jpg", 
+    inventory: 15, 
+    description: "For the girl who prowls through life with undeniable presence. This statement piece captures the essence of feline power and luxury. Not for the faint of heart.", 
+    sizes: ["One Size"], 
+    ingredients: "Swarovski Crystals, Platinum Plating",
+    faqs: [
+      { q: "Is it adjustable?", a: "Yes, adjustable chain from 12-16 inches." },
+      { q: "Will it irritate sensitive skin?", a: "Hypoallergenic and nickel-free." }
+    ]
+  },
+  { 
+    id: 5, 
+    name: "Crimson Satin Corset", 
+    price: 685, 
+    oldPrice: 895, 
+    category: "Fashion", 
+    rating: 4.8, 
+    reviews: 298, 
+    img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop", 
+    inventory: 25, 
+    description: "Structured satin corset that cinches your waist and lifts everything in the right places. Pair it with jeans for a casual slay or a skirt for maximum impact.", 
+    sizes: ["XS", "S", "M", "L", "XL"], 
+    ingredients: "Silk Satin, Boning",
+    faqs: [
+      { q: "Is it comfortable to sit in?", a: "Yes! The boning is flexible enough for all-day wear." },
+      { q: "Does it have a zipper?", a: "Side zipper closure for easy on and off." }
+    ]
+  },
+
+  // BEAUTY - Glossy VS Style
+  { 
+    id: 6, 
+    name: "Blood Red Elixir", 
+    price: 485, 
+    oldPrice: 650, 
+    category: "Beauty", 
+    rating: 5.0, 
+    reviews: 234, 
+    img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&h=800&fit=crop", 
+    inventory: 45, 
+    description: "An intoxicating perfume that lingers in the best way. Notes of dark rose, vanilla, and musk create a scent that's unforgettable - just like you.", 
+    sizes: ["30ml", "50ml", "100ml"], 
+    ingredients: "Dark Rose Absolute, Madagascar Vanilla, White Musk, Amber, Sandalwood, Bergamot",
+    faqs: [
+      { q: "How long does it last?", a: "8-12 hours on skin, all day on clothes." },
+      { q: "Is it overpowering?", a: "It's bold but not overwhelming - perfect for making an entrance." }
+    ]
+  },
+  { 
+    id: 7, 
+    name: "Diamond Body Glow Oil", 
+    price: 385, 
+    oldPrice: 495, 
+    category: "Beauty", 
+    rating: 4.8, 
+    reviews: 423, 
+    img: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=800&fit=crop", 
+    inventory: 52, 
+    description: "Shimmering body oil that gives you that Victoria's Secret runway glow. Infused with gold particles and the most divine rose scent.", 
+    sizes: ["100ml", "250ml"], 
+    ingredients: "Jojoba Oil, Rose Extract, 24K Gold Particles, Vitamin E, Jasmine Essential Oil",
+    faqs: [
+      { q: "Will it transfer to clothes?", a: "Let it absorb for 5 minutes and you're good to go!" },
+      { q: "Is it greasy?", a: "Absorbs quickly leaving a silky, non-greasy finish." }
+    ]
+  },
+  { 
+    id: 8, 
+    name: "Maneater Red Lipstick", 
+    price: 485, 
+    oldPrice: 650, 
+    category: "Beauty", 
+    rating: 5.0, 
+    reviews: 1234, 
+    img: "/images/maneater-lipstick.jpg", 
+    inventory: 78, 
+    description: "The perfect dark cherry lip stain that won't budge through coffee, kisses, or chaos. Matte finish that feels like nothing on your lips.", 
+    sizes: ["One Size"], 
+    ingredients: "Jojoba Oil, Vitamin E, Cherry Extract, Hyaluronic Acid, Pigment",
+    faqs: [
+      { q: "Is it drying?", a: "No! It's infused with hyaluronic acid for hydration." },
+      { q: "How do I remove it?", a: "Use an oil-based makeup remover for easy removal." }
+    ]
+  },
+  { 
+    id: 9, 
+    name: "Platinum Face Serum", 
+    price: 685, 
+    oldPrice: 895, 
+    category: "Beauty", 
+    rating: 4.8, 
+    reviews: 334, 
+    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=800&fit=crop", 
+    inventory: 41, 
+    description: "Wake up to glass skin. This overnight serum works while you sleep to give you that effortless 'I woke up like this' glow.", 
+    sizes: ["30ml", "50ml"], 
+    ingredients: "Retinol, Hyaluronic Acid, Niacinamide, Vitamin C, Rosehip Oil",
+    faqs: [
+      { q: "Can I use it every night?", a: "Start with 2-3 times a week, then build up to nightly." },
+      { q: "Is it safe for sensitive skin?", a: "Yes, but patch test first if you're sensitive to retinol." }
+    ]
+  },
+  { 
+    id: 10, 
+    name: "Raven Lash Mascara", 
+    price: 285, 
+    oldPrice: 375, 
+    category: "Beauty", 
+    rating: 4.7, 
+    reviews: 678, 
+    img: "https://images.unsplash.com/photo-1631730359585-38a4935cbec4?w=600&h=800&fit=crop", 
+    inventory: 65, 
+    description: "False lash effect in a tube. This mascara gives you dramatic volume and length without the clumps. Waterproof and smudge-proof for all your dramatic moments.", 
+    sizes: ["One Size"], 
+    ingredients: "Carnauba Wax, Vitamin E, Collagen, Pigment",
+    faqs: [
+      { q: "Is it hard to remove?", a: "Use a gentle oil-based remover and it slides right off." },
+      { q: "Does it flake?", a: "No flaking or smudging - stays perfect all day." }
+    ]
+  },
+  { 
+    id: 11, 
+    name: "Midnight Smoke Palette", 
+    price: 385, 
+    oldPrice: 495, 
+    category: "Beauty", 
+    rating: 4.9, 
+    reviews: 445, 
+    img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=800&fit=crop", 
+    inventory: 38, 
+    description: "12 sultry shades from midnight black to champagne shimmer. Create everything from subtle daytime looks to dramatic smoky eyes.", 
+    sizes: ["One Size"], 
+    ingredients: "Talc-Free Formula, Mica, Jojoba Oil, Vitamin E",
+    faqs: [
+      { q: "Is it pigmented?", a: "Extremely! A little goes a long way." },
+      { q: "Does it have fallout?", a: "Minimal fallout - use an eyeshadow primer for best results." }
+    ]
+  },
+  { 
+    id: 12, 
+    name: "Noir Silk Pillowcase", 
+    price: 425, 
+    oldPrice: 550, 
+    category: "Fashion", 
+    rating: 4.8, 
+    reviews: 223, 
+    img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=800&fit=crop", 
+    inventory: 30, 
+    description: "Beauty sleep is real. These silk pillowcases prevent hair breakage and keep your skin crease-free. Wake up looking like you actually got 8 hours.", 
+    sizes: ["Standard", "King"], 
+    ingredients: "100% 22 Momme Mulberry Silk",
+    faqs: [
+      { q: "How do I wash them?", a: "Machine wash delicate in cold water, hang dry." },
+      { q: "Do they come in a set?", a: "Yes, set of 2 pillowcases in a gift box." }
+    ]
+  },
+  { 
+    id: 13, 
+    name: "Cherry Red Vinyl Pants", 
+    price: 1285, 
+    oldPrice: 1650, 
+    category: "Fashion", 
+    rating: 4.9, 
+    reviews: 456, 
+    img: "/images/red-vinyl-pants.jpg", 
+    inventory: 25, 
+    description: "High-waisted cherry red vinyl pants that hug every curve. For the girl who owns the room the moment she walks in. Dangerously glossy, impossibly chic.", 
+    sizes: ["XS", "S", "M", "L", "XL"], 
+    ingredients: "Premium Vinyl, Cotton Lining",
+    faqs: [
+      { q: "Are they comfortable?", a: "Surprisingly yes! The cotton lining makes them wearable all night." },
+      { q: "How do I clean vinyl?", a: "Wipe clean with damp cloth. Do not machine wash." }
+    ]
+  },
   { id: 10, name: "Designer Sunglasses", price: 1299, oldPrice: 1699, category: "Fashion", rating: 4.9, reviews: 234, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop&crop=center", inventory: 15, description: "Premium polarized sunglasses with UV protection and lightweight titanium frames." },
   { id: 11, name: "Vitamin C Cream", price: 280, oldPrice: 380, category: "Beauty", rating: 4.6, reviews: 678, img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop&crop=center", inventory: 62, description: "Brightening vitamin C cream that evens skin tone and boosts collagen production." },
-  { id: 12, name: "Ceramic Dinner Set", price: 450, oldPrice: 600, category: "Home", rating: 4.7, reviews: 189, img: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400&h=400&fit=crop&crop=center", inventory: 22, description: "16-piece ceramic dinnerware set with modern minimalist design and chip-resistant finish." },
-  { id: 13, name: "Mechanical Keyboard", price: 1599, oldPrice: 1999, category: "Tech", rating: 4.9, reviews: 445, img: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=400&fit=crop&crop=center", inventory: 18, description: "RGB backlit mechanical keyboard with blue switches and aluminum frame." },
-  { id: 14, name: "Denim Jacket", price: 950, oldPrice: 1250, category: "Fashion", rating: 4.8, reviews: 356, img: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=400&h=400&fit=crop&crop=center", inventory: 31, description: "Classic denim jacket with distressed details and premium cotton construction." },
-  { id: 15, name: "Hair Oil Treatment", price: 240, oldPrice: 320, category: "Beauty", rating: 4.5, reviews: 789, img: "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=400&h=400&fit=crop&crop=center", inventory: 73, description: "Nourishing hair oil treatment with argan oil and essential vitamins for healthy, shiny hair." },
-  { id: 16, name: "Floor Lamp", price: 680, oldPrice: 850, category: "Home", rating: 4.6, reviews: 267, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center", inventory: 14, description: "Modern floor lamp with adjustable height and warm LED lighting for any room." },
-  { id: 17, name: "Smartphone Stand", price: 199, oldPrice: 299, category: "Tech", rating: 4.4, reviews: 892, img: "https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=400&h=400&fit=crop&crop=center", inventory: 45, description: "Adjustable smartphone stand with wireless charging and multiple viewing angles." },
-  { id: 18, name: "Wool Sweater", price: 720, oldPrice: 950, category: "Fashion", rating: 4.7, reviews: 198, img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop&crop=center", inventory: 27, description: "Cozy wool sweater with cable knit pattern and comfortable fit for all seasons." },
-  { id: 19, name: "Face Mask Set", price: 160, oldPrice: 220, category: "Beauty", rating: 4.3, reviews: 1245, img: "https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=400&h=400&fit=crop&crop=center", inventory: 89, description: "Set of 10 reusable face masks with adjustable straps and multiple color options." },
-  { id: 20, name: "Throw Blanket", price: 340, oldPrice: 450, category: "Home", rating: 4.8, reviews: 334, img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center", inventory: 38, description: "Ultra-soft throw blanket made from premium microfiber, perfect for couch or bed." },
-  { id: 21, name: "Bluetooth Speaker", price: 899, oldPrice: 1199, category: "Tech", rating: 4.7, reviews: 623, img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&crop=center", inventory: 21, description: "Portable Bluetooth speaker with 360-degree sound and waterproof design." },
-  { id: 22, name: "Leather Boots", price: 1299, oldPrice: 1699, category: "Fashion", rating: 4.9, reviews: 167, img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center", inventory: 13, description: "Handcrafted leather boots with waterproof treatment and comfortable arch support." },
-  { id: 23, name: "Nail Polish Kit", price: 180, oldPrice: 250, category: "Beauty", rating: 4.5, reviews: 567, img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop&crop=center", inventory: 52, description: "Professional nail polish kit with 12 vibrant colors and quick-dry formula." },
-  { id: 24, name: "Wall Art Set", price: 420, oldPrice: 550, category: "Home", rating: 4.6, reviews: 289, img: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop&crop=center", inventory: 16, description: "Set of 3 abstract wall art prints with modern frames and gallery-quality finish." },
-  { id: 25, name: "Fitness Tracker", price: 699, oldPrice: 899, category: "Tech", rating: 4.6, reviews: 734, img: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=400&fit=crop&crop=center", inventory: 32, description: "Advanced fitness tracker with heart rate monitoring, sleep tracking, and GPS." },
-  { id: 26, name: "Silk Dress", price: 890, oldPrice: 1200, category: "Fashion", rating: 4.8, reviews: 145, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop&crop=center", inventory: 9, description: "Elegant silk dress with flowing silhouette and delicate embroidery details." },
-  { id: 27, name: "Skincare Set", price: 480, oldPrice: 650, category: "Beauty", rating: 4.7, reviews: 423, img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center", inventory: 28, description: "Complete skincare routine set with cleanser, toner, serum, and moisturizer." },
-  { id: 28, name: "Bookshelf", price: 1250, oldPrice: 1600, category: "Home", rating: 4.8, reviews: 156, img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center", inventory: 7, description: "Modern 5-tier bookshelf with sturdy construction and adjustable shelves." },
-  { id: 29, name: "Tablet Case", price: 149, oldPrice: 199, category: "Tech", rating: 4.4, reviews: 876, img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop&crop=center", inventory: 41, description: "Protective tablet case with screen protector and multi-angle stand." },
-  { id: 30, name: "Winter Coat", price: 1450, oldPrice: 1850, category: "Fashion", rating: 4.9, reviews: 203, img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=center", inventory: 11, description: "Warm winter coat with down filling and water-resistant exterior." },
-  { id: 31, name: "Lipstick Set", price: 220, oldPrice: 300, category: "Beauty", rating: 4.6, reviews: 654, img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop&crop=center", inventory: 35, description: "Luxury lipstick set with 6 long-lasting shades and moisturizing formula." },
-  { id: 32, name: "Coffee Table", price: 780, oldPrice: 1000, category: "Home", rating: 4.7, reviews: 198, img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center", inventory: 12, description: "Contemporary coffee table with storage compartment and tempered glass top." }
 ];
 
-export const CATEGORIES = ["All", "Fashion", "Tech", "Beauty", "Home", "Sports", "Books", "Automotive"];
+export const CATEGORIES = ["All", "Fashion", "Beauty"];

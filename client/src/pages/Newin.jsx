@@ -285,7 +285,7 @@ export default function Newin() {
                       <img
                         src={product.img}
                         alt={product.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        className="w-full h-full object-contain bg-zinc-900"
                       />
                     </div>
                     <div className="flex-1 p-3">

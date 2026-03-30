@@ -1,5 +1,24 @@
 import { createContext, useContext, useMemo, useState, useEffect } from "react";
 import { PRODUCTS } from "../data/products";
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add token interceptor
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 const StoreContext = createContext(null);
 
@@ -8,17 +27,18 @@ export function StoreProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
   const [filters, setFilters] = useState({ category: "All", sort: "popularity", search: "" });
   const [productModal, setProductModal] = useState(null);
+  const [products, setProducts] = useState(PRODUCTS);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage for saved theme preference
     const saved = localStorage.getItem('darkMode');
     return saved ? JSON.parse(saved) : false;
   });
-
-  const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('user');
-    return saved ? JSON.stringify(saved) : null;
-  });
-
 
   // Save theme preference to localStorage
   useEffect(() => {
@@ -31,28 +51,40 @@ export function StoreProvider({ children }) {
     }
   }, [darkMode]);
 
-  // Load user from localStorage on mount
+  // Fetch products from backend
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
-  }, []); 
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get('/products');
+        if (response.data.success) {
+          setProducts(response.data.data || PRODUCTS);
+        }
+      } catch (err) {
+        console.error('Error fetching products:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchProducts();
+  }, []);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const toggleDarkMode = () => setDarkMode(prev => !prev);
-
-  const loginUser = (userData) => {
-    setUser(userData);
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('user', JSON.stringify(userData));
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('user');
-  };
 
   const addToCart = (product, qty = 1) => {
     setCart((items) => {
@@ -65,9 +97,23 @@ export function StoreProvider({ children }) {
   const removeFromCart = (id) => setCart((items) => items.filter((item) => item.id !== id));
   const updateQty = (id, qty) => setCart((items) => items.map((item) => item.id === id ? { ...item, qty } : item));
   const toggleWishlist = (id) => setWishlist((items) => items.includes(id) ? items.filter((x) => x !== id) : [...items, id]);
+  
+  const clearCart = () => setCart([]);
+  
+  const login = (userData, token) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
+  };
+  
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
+  };
 
   const filteredProducts = useMemo(() => {
-    let list = [...PRODUCTS];
+    let list = [...products];
     if (filters.category !== "All") list = list.filter((p) => p.category === filters.category);
     if (filters.search) list = list.filter((p) => p.name.toLowerCase().includes(filters.search.toLowerCase()));
 
@@ -76,7 +122,7 @@ export function StoreProvider({ children }) {
     if (filters.sort === "rating") list.sort((a, b) => b.rating - a.rating);
 
     return list;
-  }, [filters]);
+  }, [products, filters]);
 
   const cartTotal = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.qty, 0), [cart]);
 
@@ -87,19 +133,23 @@ export function StoreProvider({ children }) {
       addToCart,
       removeFromCart,
       updateQty,
+      clearCart,
       wishlist,
       toggleWishlist,
       filters,
       setFilters,
       filteredProducts,
+      products,
+      loading,
+      error,
       productModal,
       setProductModal,
-      PRODUCTS,
+      user,
+      login,
+      logout,
       darkMode,
       toggleDarkMode,
-      user,
-      loginUser,
-      logout
+      api
     }}>
       {children}
     </StoreContext.Provider>

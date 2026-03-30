@@ -13,7 +13,7 @@ import Newin from "./pages/Newin";
 import Sale from "./pages/Sale";
 import About from "./pages/About";
 import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import SignupPage from "./pages/Signuppage";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
 import Checkout from "./pages/Checkout";

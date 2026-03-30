@@ -3,13 +3,12 @@ services:
   - type: web
     name: al-firdous-luxe-frontend
     env: static
-    buildCommand: cd client && npm install && npm run build
-    staticPublishPath: ./client/dist
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
         value: 20
-      - key: NPM_FLAGS
-        value: --legacy-peer-deps
 
   # Backend - Node.js Express API
   - type: web

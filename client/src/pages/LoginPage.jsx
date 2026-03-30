@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./Loginpage.css";
 
 const containerVariants = {
   hidden: { opacity: 0 },
